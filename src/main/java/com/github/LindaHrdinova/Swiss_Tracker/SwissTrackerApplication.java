@@ -15,5 +15,4 @@ public class SwissTrackerApplication {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(SwissTrackerApplication.class, args);
 		logger.info("Aplikace běží na adrese: http://localhost:{}", applicationContext.getEnvironment().getProperty("local.server.port"));
 	}
-
 }
