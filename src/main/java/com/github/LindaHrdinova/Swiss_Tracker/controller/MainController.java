@@ -20,6 +20,7 @@ public class MainController {
 
     @GetMapping("/addPlayer")
     public String addPlayer() {
+
         return "addPlayer";
     }
 }

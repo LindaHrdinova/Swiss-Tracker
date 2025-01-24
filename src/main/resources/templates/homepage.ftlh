@@ -13,26 +13,26 @@
     <h1>Vítej v turnaji!</h1>
     <form method="post" action="/">
         <div class="formInput">
-            <label for="turnamentName">Název turnaje *</label>
-            <input type="text" name="turnamentName" required>
+            <label for="tournamentName">Název turnaje *</label>
+            <input type="text" name="tournamentName" required>
         </div>
         <div class="formInput">
             <label for="organisedBy">Pořadatel *</label>
             <input type="text" name="organisedBy" required>
         </div>
         <div class="formInput">
-            <label for="turnamentDate">Datum turnaje</label>
-            <input type="date" name="turnamentDate">
+            <label for="tournamentDate">Datum turnaje</label>
+            <input type="date" name="tournamentDate">
         </div>
         <div class="formInput">
-            <label for="turnamentType">Typ turnaje *</label>
-            <select name="turnamentType" required>
+            <label for="tournamentType">Typ turnaje *</label>
+            <select name="tournamentType" required>
                 <option value="pokemon">Pokémon</option>
             </select>
         </div>
         <div class="formInput">
-            <label for="turnamentRoundsNumber">Počet kol *</label>
-            <input type="number" min="1" max="10" name="turnamentRoundsNumber" required>
+            <label for="tournamentRoundsNumber">Počet kol *</label>
+            <input type="number" min="1" max="10" name="tournamentRoundsNumber" required>
         </div>
         <div>
             <button type="submit">Pokračovat</button>
