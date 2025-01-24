@@ -33,11 +33,15 @@ public class Player {
     }
 
     public String getPlayerDivision() {
+        String playerDivision;
         if (playerBirthday.getYear() >= 2013)
-        {playerDivision = "junior";}
+        {
+            playerDivision = "junior";}
         else if (playerBirthday.getYear() >= 2009)
-        {playerDivision = "senior";}
-        else {playerDivision = "master";}
+        {
+            playerDivision = "senior";}
+        else {
+            playerDivision = "master";}
         return playerDivision;
     }
 
