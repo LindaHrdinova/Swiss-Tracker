@@ -1,12 +1,12 @@
 package com.github.LindaHrdinova.Swiss_Tracker.entity;
 
 import java.time.LocalDate;
+import java.time.Year;
 
 public class Player {
     private int playerID;
     private String playerName;
     private LocalDate playerBirthday;
-    private String playerDivision;
 
     public int getPlayerID() {
         return playerID;
@@ -33,10 +33,19 @@ public class Player {
     }
 
     public String getPlayerDivision() {
+        if (playerBirthday.getYear() >= 2013)
+        {playerDivision = "junior";}
+        else if (playerBirthday.getYear() >= 2009)
+        {playerDivision = "senior";}
+        else {playerDivision = "master";}
         return playerDivision;
     }
 
-    public void setPlayerDivision(String playerDivision) {
-        this.playerDivision = playerDivision;
-    }
+    /*
+    Age Divisions in 2025 Official Competitions:
+
+    Junior Division: Born in or after 2013
+    Senior Division: Born between 2009 and 2012
+    Masters Division: Born in or before 2008
+     */
 }

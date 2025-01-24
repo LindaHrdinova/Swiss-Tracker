@@ -9,6 +9,17 @@ public class Organiser {
     private int tournamentRoundsNumber;
     private LocalDate tournamentDate;
 
+    public Organiser() {
+    }
+
+    public Organiser(String tournamentName, String organisedBy, String tournamentType, int tournamentRoundsNumber, LocalDate tournamentDate) {
+        this.tournamentName = tournamentName;
+        this.organisedBy = organisedBy;
+        this.tournamentType = tournamentType;
+        this.tournamentRoundsNumber = tournamentRoundsNumber;
+        this.tournamentDate = tournamentDate;
+    }
+
     public String getTournamentName() {
         return tournamentName;
     }
