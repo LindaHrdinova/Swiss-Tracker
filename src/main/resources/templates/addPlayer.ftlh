@@ -25,7 +25,6 @@
         <div class="formInput">
             <label for="playerBirthday">Datum narození *</label>
             <input type="date" name="playerBirthday" required>
-
         </div>
         <div>
             <button type="submit">Přidat</button>
