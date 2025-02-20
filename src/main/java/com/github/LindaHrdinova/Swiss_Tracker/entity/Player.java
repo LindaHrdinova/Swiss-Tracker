@@ -1,12 +1,20 @@
 package com.github.LindaHrdinova.Swiss_Tracker.entity;
 
 import java.time.LocalDate;
-import java.time.Year;
 
 public class Player {
     private int playerID;
     private String playerName;
     private LocalDate playerBirthday;
+
+    public Player() {
+    }
+
+    public Player(int playerID, String playerName, LocalDate playerBirthday) {
+        this.playerID = playerID;
+        this.playerName = playerName;
+        this.playerBirthday = playerBirthday;
+    }
 
     public int getPlayerID() {
         return playerID;
