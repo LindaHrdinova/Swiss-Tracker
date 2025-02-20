@@ -3,25 +3,25 @@ package com.github.LindaHrdinova.Swiss_Tracker.entity;
 import java.time.LocalDate;
 
 public class Player {
-    private int playerID;
+    private int playerId;
     private String playerName;
     private LocalDate playerBirthday;
 
     public Player() {
     }
 
-    public Player(int playerID, String playerName, LocalDate playerBirthday) {
-        this.playerID = playerID;
+    public Player(int playerId, String playerName, LocalDate playerBirthday) {
+        this.playerId = playerId;
         this.playerName = playerName;
         this.playerBirthday = playerBirthday;
     }
 
-    public int getPlayerID() {
-        return playerID;
+    public int getPlayerId() {
+        return playerId;
     }
 
-    public void setPlayerID(int playerID) {
-        this.playerID = playerID;
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
     }
 
     public String getPlayerName() {

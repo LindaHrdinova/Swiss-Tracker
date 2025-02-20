@@ -33,7 +33,7 @@
             [#if player.playerDivision == "master"]
                 <tr>
                     <td>${player?counter}</td>
-                    <td>${player.playerID}</td>
+                    <td>${player.playerId}</td>
                     <td>${player.playerName}</td>
                 </tr>
             [/#if]
@@ -54,7 +54,7 @@
             [#if player.playerDivision == "senior"]
                 <tr>
                     <td>${player?counter}</td>
-                    <td>${player.playerID}</td>
+                    <td>${player.playerId}</td>
                     <td>${player.playerName}</td>
                 </tr>
             [/#if]
@@ -76,7 +76,7 @@
             [#if player.playerDivision == "junior"]
                 <tr>
                     <td>${player?counter}</td>
-                    <td>${player.playerID}</td>
+                    <td>${player.playerId}</td>
                     <td>${player.playerName}</td>
                 </tr>
             [/#if]

@@ -10,7 +10,6 @@
 </head>
 <body>
 <nav>
-    <ul></ul>
     <a href="http://localhost:8080/">založi turnaj</a>
     <a href="http://localhost:8080/tournamentData">Informace o turnaji</a>
     <a href="http://localhost:8080/addPlayer">přidat hráče</a>
@@ -18,7 +17,7 @@
 </nav>
 <main>
     <h1>Přidej hráče do turnaje</h1>
-    <form method="post" action="/">
+    <form method="post" action="/addPlayer" method="post">
         <div class="formInput">
             <label for="playerId">ID *</label>
             <input type="number" name="playerId" required>
