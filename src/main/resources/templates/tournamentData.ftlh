@@ -17,12 +17,11 @@
 </nav>
 <main>
     <h1>Informace o turnaji</h1>
-    <div>
-        <div class="formInput"><strong>Název turnaje:</strong> ${organiser.tournamentName}</div>
-        <div class="formInput"><strong>Pořadatel:</strong> ${organiser.organisedBy}</div>
-        <div class="formInput"><strong>Typ turnaje:</strong> ${organiser.tournamentType}</div>
-        <div class="formInput"><strong>Počet kol:</strong> ${organiser.tournamentRoundsNumber}</div>
-        <div class="formInput"><strong>Datum:</strong> ${organiser.tournamentDate}</div>
+        <div class="formInput"><strong>Název turnaje:</strong> ${tournament.tournamentName}</div>
+        <div class="formInput"><strong>Pořadatel:</strong> ${tournament.tournamentOrganizer}</div>
+        <div class="formInput"><strong>Typ turnaje:</strong> ${tournament.tournamentType}</div>
+        <div class="formInput"><strong>Počet kol:</strong> ${tournament.tournamentRounds}</div>
+        <div class="formInput"><strong>Datum:</strong> ${tournament.tournamentDate}</div>
     </div>
 </main>
 </body>

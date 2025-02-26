@@ -2,21 +2,21 @@ package com.github.LindaHrdinova.Swiss_Tracker.entity;
 
 import java.time.LocalDate;
 
-public class Organiser {
+public class Tournament {
     private String tournamentName;
-    private String organisedBy;
+    private String tournamentOrganizer;
     private String tournamentType;
-    private int tournamentRoundsNumber;
+    private int tournamentRounds;
     private LocalDate tournamentDate;
 
-    public Organiser() {
+    public Tournament() {
     }
 
-    public Organiser(String tournamentName, String organisedBy, String tournamentType, int tournamentRoundsNumber, LocalDate tournamentDate) {
+    public Tournament(String tournamentName, String tournamentOrganizer, String tournamentType, int tournamentRounds, LocalDate tournamentDate) {
         this.tournamentName = tournamentName;
-        this.organisedBy = organisedBy;
+        this.tournamentOrganizer = tournamentOrganizer;
         this.tournamentType = tournamentType;
-        this.tournamentRoundsNumber = tournamentRoundsNumber;
+        this.tournamentRounds = tournamentRounds;
         this.tournamentDate = tournamentDate;
     }
 
@@ -28,12 +28,12 @@ public class Organiser {
         this.tournamentName = tournamentName;
     }
 
-    public String getOrganisedBy() {
-        return organisedBy;
+    public String getTournamentOrganizer() {
+        return tournamentOrganizer;
     }
 
-    public void setOrganisedBy(String organisedBy) {
-        this.organisedBy = organisedBy;
+    public void setTournamentOrganizer(String tournamentOrganizer) {
+        this.tournamentOrganizer = tournamentOrganizer;
     }
 
     public String getTournamentType() {
@@ -44,12 +44,12 @@ public class Organiser {
         this.tournamentType = tournamentType;
     }
 
-    public int getTournamentRoundsNumber() {
-        return tournamentRoundsNumber;
+    public int getTournamentRounds() {
+        return tournamentRounds;
     }
 
-    public void setTournamentRoundsNumber(int tournamentRoundsNumber) {
-        this.tournamentRoundsNumber = tournamentRoundsNumber;
+    public void setTournamentRounds(int tournamentRounds) {
+        this.tournamentRounds = tournamentRounds;
     }
 
     public LocalDate getTournamentDate() {

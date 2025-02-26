@@ -1,14 +1,11 @@
 package com.github.LindaHrdinova.Swiss_Tracker.controller;
 
-import com.github.LindaHrdinova.Swiss_Tracker.entity.Organiser;
 import com.github.LindaHrdinova.Swiss_Tracker.entity.Player;
+import com.github.LindaHrdinova.Swiss_Tracker.service.PlayerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 public class PlayerController {

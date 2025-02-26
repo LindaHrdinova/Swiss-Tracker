@@ -17,14 +17,14 @@
 </nav>
 <main>
     <h1>Vítej v turnaji!</h1>
-    <form method="post" action="/">
+    <form method="post" action="/tournamentData">
         <div class="formInput">
             <label for="tournamentName">Název turnaje *</label>
             <input type="text" name="tournamentName" required>
         </div>
         <div class="formInput">
-            <label for="organisedBy">Pořadatel *</label>
-            <input type="text" name="organisedBy" required>
+            <label for="tournamentOrganizer">Pořadatel *</label>
+            <input type="text" name="tournamentOrganizer" required>
         </div>
         <div class="formInput">
             <label for="tournamentDate">Datum turnaje</label>
@@ -37,8 +37,8 @@
             </select>
         </div>
         <div class="formInput">
-            <label for="tournamentRoundsNumber">Počet kol *</label>
-            <input type="number" min="1" max="10" name="tournamentRoundsNumber" required>
+            <label for="tournamentRounds">Počet kol *</label>
+            <input type="number" min="1" max="10" name="tournamentRounds" required>
         </div>
         <div>
             <button type="submit">Pokračovat</button>

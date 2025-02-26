@@ -1,4 +1,4 @@
-package com.github.LindaHrdinova.Swiss_Tracker.controller;
+package com.github.LindaHrdinova.Swiss_Tracker.service;
 
 import com.github.LindaHrdinova.Swiss_Tracker.entity.Player;
 import org.springframework.stereotype.Service;
