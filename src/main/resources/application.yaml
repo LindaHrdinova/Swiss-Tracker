@@ -1,0 +1,6 @@
+spring:
+  freemarker:
+    cache: false
+    settings:
+      auto_import: /_imports/layout.ftlh as l
+      output_encoding: UTF-8

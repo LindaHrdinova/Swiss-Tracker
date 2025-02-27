@@ -1,20 +1,5 @@
 [#ftl]
-
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiss Tracker</title>
-    <link rel="stylesheet" href="/style.css" type="text/css"/>
-</head>
-<body>
-<nav>
-    <a href="/">Turnaj</a>
-    <a href="/addPlayer">přidat hráče</a>
-    <a href="/playersList">Seznam hráčů</a>
-</nav>
-<main>
+[@l.page title=" - turnaj"]
     <h1>Vítej v turnaji!</h1>
     [#if tournament??]
         <div class="formInput"><strong>Název turnaje:</strong> ${tournament.tournamentName}</div>
@@ -57,6 +42,4 @@
             </div>
         </form>
     [/#if]
-</main>
-</body>
-</html>
+[/@l.page]
