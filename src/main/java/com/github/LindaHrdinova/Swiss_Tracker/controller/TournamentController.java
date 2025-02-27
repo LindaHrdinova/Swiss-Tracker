@@ -1,6 +1,5 @@
 package com.github.LindaHrdinova.Swiss_Tracker.controller;
 
-import com.github.LindaHrdinova.Swiss_Tracker.entity.Player;
 import com.github.LindaHrdinova.Swiss_Tracker.entity.Tournament;
 import com.github.LindaHrdinova.Swiss_Tracker.service.TournamentService;
 import org.springframework.stereotype.Controller;
@@ -23,21 +22,24 @@ public class TournamentController {
     public ModelAndView homepage() {
         System.out.println("volám Controller ");
 
-        ModelAndView result = new ModelAndView("homepage");
-        result.addObject("");
-        return result;
-    }
-    
-    @PostMapping("/tournamentData")
-    public ModelAndView append(Tournament tournament) {
-        service.updateTournament(tournament);
-        return new ModelAndView("tournamentData");
+        ModelAndView modelAndView = new ModelAndView("homepage");
+        modelAndView.addObject("tournament", service.getTournament());
+        return modelAndView;
     }
 
-    @GetMapping("/tournamentData")
-    public ModelAndView tournamentData() {
-        Tournament tournament = new Tournament("Prerealise", "ČR", "Pokémon", 4, LocalDate.of(2025, 1, 24));
-        ModelAndView modelAndView = new ModelAndView("tournamentData");
+    @PostMapping("/")
+    public ModelAndView append(Tournament tournament) {
+        service.updateTournament(tournament);
+        return new ModelAndView("homepage");
+    }
+
+    @GetMapping("/editTournament")
+    public  ModelAndView editTournamentData() {
+        Tournament tournament = service.getTournament();
+        if (tournament == null) {
+            return new ModelAndView("redirect:/"); // Přesměrování na formulář pro vytvoření turnaje
+        }
+        ModelAndView modelAndView = new ModelAndView("editTournament");
         modelAndView.addObject("tournament", tournament);
         return modelAndView;
     }
