@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Controller
 public class PlayerController {
     private final PlayerService service;
@@ -30,7 +34,16 @@ public class PlayerController {
     @GetMapping("/playersList")
     public ModelAndView playersData() {
         ModelAndView modelAndView = new ModelAndView("playersList");
-        modelAndView.addObject("players", service.getAll());
+
+        // SELECT DISTINCT player_division FROM players;
+        List<Player> players = service.getAll();
+
+        Set<String> divisions = players.stream()
+                .map(Player::getPlayerDivision)
+                .collect(Collectors.toSet());
+
+        modelAndView.addObject("players",players);
+        modelAndView.addObject("divisions", divisions);
         return modelAndView;
     }
 }

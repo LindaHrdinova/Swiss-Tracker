@@ -2,67 +2,40 @@
 [@l.page title=" - seznam hráčů"]
     <h1>Seznam hráčů</h1>
 
-    <h2>Master</h2>
-    <table>
-        <thead>
-        <tr>
-            <td>Pořadí</td>
-            <td>ID hráče</td>
-            <td>Jméno</td>
-        </tr>
-        </thead>
-        <tbody>
-        [#list players as player]
-            [#if player.playerDivision == "master"]
+    [#if players?size == 0]
+        <p>Prázdný seznam hráčů.</p>
+    [#else]
+        [#list divisions as division]
+            <h2>${division?cap_first}</h2>
+            <table>
+                <thead>
                 <tr>
-                    <td>${player?counter}</td>
-                    <td>${player.playerId}</td>
-                    <td>${player.playerName}</td>
+                    <td>Pořadí</td>
+                    <td>ID hráče</td>
+                    <td>Jméno</td>
                 </tr>
-            [/#if]
-        [/#list]</tbody>
-    </table>
-
-    <h2>Senior</h2>
-    <table>
-        <thead>
-        <tr>
-            <td>Pořadí</td>
-            <td>ID hráče</td>
-            <td>Jméno</td>
-        </tr>
-        </thead>
-        <tbody>
-        [#list players as player]
-            [#if player.playerDivision == "senior"]
-                <tr>
-                    <td>${player?counter}</td>
-                    <td>${player.playerId}</td>
-                    <td>${player.playerName}</td>
-                </tr>
-            [/#if]
+                </thead>
+                <tbody>
+                [#list players as player]
+                    [#if player.playerDivision == division]
+                        <tr>
+                            <td>${player?counter}</td>
+                            <td>${player.playerId}</td>
+                            <td>${player.playerName}</td>
+                        </tr>
+                    [/#if]
+                [/#list]
+                </tbody>
+            </table>
         [/#list]
-        </tbody>
-    </table>
+    [/#if]
 
-    <h2>Junior</h2>
-    <table>
-        <thead>
-        <tr>
-            <td>Pořadí</td>
-            <td>ID hráče</td>
-            <td>Jméno</td>
-        </tr>
-        </thead>
-        <tbody>
-        [#list players as player]
-            [#if player.playerDivision == "junior"]
-                <tr>
-                    <td>${player?counter}</td>
-                    <td>${player.playerId}</td>
-                    <td>${player.playerName}</td>
-                </tr>
-            [/#if]
-        [/#list]</tbody>
-    </table>
+    <div>
+        <a href="/addPlayer">
+            <button type="button">Přidat hráče</button>
+        </a>
+        <a href="/">
+            <button type="button">Turnaj</button>
+        </a>
+    </div>
 [/@l.page]

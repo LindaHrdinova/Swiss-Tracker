@@ -16,7 +16,7 @@
             <input type="date" name="playerBirthday" required>
         </div>
         <div>
-            <button type="submit">Přidat</button>
+            <button type="submit">Přidat hráče</button>
         </div>
     </form>
 [/@l.page]

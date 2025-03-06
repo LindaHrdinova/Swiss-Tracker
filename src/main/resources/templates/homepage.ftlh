@@ -7,12 +7,10 @@
         <div class="formInput"><strong>Typ turnaje:</strong> ${tournament.tournamentType}</div>
         <div class="formInput"><strong>Počet kol:</strong> ${tournament.tournamentRounds}</div>
         <div class="formInput"><strong>Datum:</strong> ${tournament.tournamentDate}</div>
-        <a href="/editTournament">
-            <button type="button">Upravit</button>
-        </a>
-        <a href="/playersList">
-            <button type="button">Spravovat hráče</button>
-        </a>
+        <div>
+            <a href="/editTournament"><button type="button">Upravit</button></a>
+            <a href="/playersList"><button type="button">Spravovat hráče</button></a>
+        </div>
     [#else]
         <form method="post" action="/">
             <div class="formInput">
