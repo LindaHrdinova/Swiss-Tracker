@@ -10,16 +10,30 @@ body {
     flex-direction: column;
 }
 
-main {min-width: 50%;}
+main {
+    min-width: 50%;
+}
 
 h1 {
     text-align: center;
 }
 
-label {
-    padding-right: 10px;
+a {
+    color: aqua;
 }
 
+a:hover {
+    color: aquamarine;
+}
+
+/* -- container -- */
+.container {
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+}
+
+/* -- table -- */
 table {
     width: 100%;
     border: 1px solid lightgray;
@@ -50,15 +64,142 @@ tr:hover {
     background-color: #4d4d4d;
 }
 
-a {
+/* -- button -- */
+button {
+    color: #1c1c1c;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button {
+    background-color: aqua;
+    color: #1c1c1c;
+    padding: 10px 20px;
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.button-container:has(:only-child) button {
+    max-width: 100%;
+}
+
+.button:hover {
+    background-color: aquamarine;
+}
+
+/* -- form -- */
+.form {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+}
+
+.form__inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form__label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    background-color: #1c1c1c;
+    border: 1px solid lightgray;
+    color: aliceblue;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+input:focus, select:focus {
+    border-color: aqua;
+    outline: none;
+}
+
+/* -- tournament data -- */
+.tournament-info {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+}
+
+.tournament-info div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    padding: 8px 0;
+}
+
+.tournament-info div:last-child {
+    border-bottom: none;
+}
+
+.tournament-info strong {
     color: aqua;
 }
 
-a:hover {
-    color: aquamarine;
+.tournament-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-.formInput {
+/* -- playersList -- */
+.player-list__actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 8px;
+}
+
+.player-list__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.player-list__button--edit {
+    background-color: dodgerblue;
+}
+
+.player-list__button--delete {
+    background-color: crimson;
+}
+
+.player-list__button--edit:hover {
+    background-color: deepskyblue;
+}
+
+.player-list__button--delete:hover {
+    background-color: red;
+}
+
+.player-list__button svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
 }
