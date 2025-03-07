@@ -10,9 +10,9 @@
             <table>
                 <thead>
                 <tr>
-                    <td>Pořadí</td>
-                    <td>ID hráče</td>
-                    <td>Jméno</td>
+                    <th>Pořadí</th>
+                    <th>ID hráče</th>
+                    <th>Jméno</th>
                 </tr>
                 </thead>
                 <tbody>
