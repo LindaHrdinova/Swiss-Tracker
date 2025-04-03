@@ -8,12 +8,12 @@
 
             </div>
             <div class="form__inputBox">
-                <label class="form__label" for="playerName">Jméno hráče *</label>
-                <input type="text" name="playerName" value="${player.playerName}" required>
+                <label class="form__label" for="name">Jméno hráče *</label>
+                <input type="text" name="name" value="${player.name}" required>
             </div>
             <div class="form__inputBox">
-                <label class="form__label" for="playerBirthday">Datum narození *</label>
-                <input type="date" name="playerBirthday" value="${player.playerBirthday}" required>
+                <label class="form__label" for="birthday">Datum narození *</label>
+                <input type="date" name="birthday" value="${player.birthday}" required>
             </div>
             <div class="button-container">
                 <button class="button" type="submit">Potvrdit změny</button>

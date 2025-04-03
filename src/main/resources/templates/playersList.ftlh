@@ -22,7 +22,7 @@
                         <tr>
                             <td>${player?counter}</td>
                             <td>${player.playerId}</td>
-                            <td>${player.playerName}</td>
+                            <td>${player.name}</td>
                             <td class="player-list__actions">
                                 <a href="/editPlayer/${player.playerId}"
                                    class="player-list__button player-list__button--edit">

@@ -1,56 +1,90 @@
 package com.github.LindaHrdinova.Swiss_Tracker.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "player")
 public class Player {
-    private int playerId;
-    private String playerName;
-    private LocalDate playerBirthday;
+    @Id
+    private Integer playerId;
+    private String name;
+    private LocalDate birthday;
+    private int score;
+    private boolean bye;
+    private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
 
     public Player() {
     }
 
-    public Player(int playerId, String playerName, LocalDate playerBirthday) {
+    public Player(Integer playerId, String name, LocalDate birthday, int score, boolean bye, String status) {
         this.playerId = playerId;
-        this.playerName = playerName;
-        this.playerBirthday = playerBirthday;
+        this.name = name;
+        this.birthday = birthday;
+        this.score = score;
+        this.bye = bye;
+        this.status = status;
     }
 
-    public int getPlayerId() {
+    public Integer getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(Integer playerId) {
         this.playerId = playerId;
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public String getName() {
+        return name;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public LocalDate getPlayerBirthday() {
-        return playerBirthday;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setPlayerBirthday(LocalDate playerBirthday) {
-        this.playerBirthday = playerBirthday;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
-    public String getPlayerDivision() {
-        String playerDivision;
-        if (playerBirthday.getYear() >= 2013)
-        {
-            playerDivision = "junior";}
-        else if (playerBirthday.getYear() >= 2009)
-        {
-            playerDivision = "senior";}
-        else {
-            playerDivision = "master";}
-        return playerDivision;
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public boolean getBye() {
+        return bye;
+    }
+
+    public void setBye(boolean bye) {
+        this.bye = bye;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     /*
@@ -61,3 +95,6 @@ public class Player {
     Masters Division: Born in or before 2008
      */
 }
+
+
+

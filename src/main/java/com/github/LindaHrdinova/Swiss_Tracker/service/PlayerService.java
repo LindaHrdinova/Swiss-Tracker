@@ -1,52 +1,67 @@
 package com.github.LindaHrdinova.Swiss_Tracker.service;
 
+import com.github.LindaHrdinova.Swiss_Tracker.entity.Division;
 import com.github.LindaHrdinova.Swiss_Tracker.entity.Player;
-import com.github.LindaHrdinova.Swiss_Tracker.entity.Tournament;
+import com.github.LindaHrdinova.Swiss_Tracker.repository.DivisionRepository;
+import com.github.LindaHrdinova.Swiss_Tracker.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PlayerService {
-    private final List<Player> players = new ArrayList<>();
+    private final PlayerRepository playerRepository;
 
-    public List<Player> getAll() {
-        return players;
+    private final DivisionRepository divisionRepository;
+
+    public PlayerService(PlayerRepository playerRepository, DivisionRepository divisionRepository) {
+        this.playerRepository = playerRepository;
+        this.divisionRepository = divisionRepository;  // Nastavit divisionRepository přes konstruktor
     }
-
+    public List<Player> getAll() {
+        return (List<Player>) playerRepository.findAll();
+    }
 
     public void append(Player player) {
-        players.add(player);
+        Long divisionId = getDivisionId(player.getBirthday());  // Získáme ID divize
+        Division division = divisionRepository.findById(divisionId)
+                .orElseThrow(() -> new RuntimeException("Division not found"));
+        player.setDivision(division);  // Přiřadíme objekt divize
+        playerRepository.save(player);
     }
 
-    public Player getById(int playerId) {
-        return players.stream() // Stream through the players list
-                .filter(player -> player.getPlayerId() == playerId) // Filter by matching player ID
-                .findFirst() // Return the first match
-                .orElse(null); // Return null if no player found
+    public Long getDivisionId(LocalDate birthday) {
+        if (birthday.getYear() >= 2013) {
+            return 1L;
+        } else if (birthday.getYear() >= 2009) {
+            return 2L;
+        } else {
+            return 3L;
+        }
     }
 
-    public void updatePlayer(int playerId, Player updatedPlayer) {
+    public Player getById(Integer playerId) {
+        return playerRepository.findById(playerId).orElse(null);
+    }
+
+    public void updatePlayer(Integer playerId, Player updatedPlayer) {
         // Find the player by ID
-        Optional<Player> playerOptional = players.stream()
-                .filter(player -> player.getPlayerId() == playerId) // Filter by player ID
-                .findFirst(); // Get the first matching player (if any)
+        Optional<Player> playerOptional = playerRepository.findById(playerId);
 
-        // If player is found, update their details
         if (playerOptional.isPresent()) {
             Player player = playerOptional.get(); // Get the player from the Optional
-            player.setPlayerName(updatedPlayer.getPlayerName()); // Update player name
-            player.setPlayerBirthday(updatedPlayer.getPlayerBirthday()); // Update player birthdate
+            player.setName(updatedPlayer.getName()); // Update player name
+            player.setBirthday(updatedPlayer.getBirthday()); // Update player birthdate
+            playerRepository.save(player);
         } else {
             // Log message if player with the given ID is not found
             System.out.println("Player with ID " + playerId + " not found.");
         }
     }
 
-    public void deletePlayer(int playerId) {
-        // Remove the player with the matching player ID from the list
-        players.removeIf(player -> player.getPlayerId() == playerId);
+    public void deletePlayer(Integer playerId) {
+        playerRepository.deleteById(playerId);
     }
 }
