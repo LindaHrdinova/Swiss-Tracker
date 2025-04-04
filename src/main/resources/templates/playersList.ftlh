@@ -6,7 +6,9 @@
         <div class="container">Prázdný seznam hráčů.</div>
     [#else]
         [#list divisions as division]
-            <h2>${division?cap_first}</h2>
+            [#assign playersInDivision = players?filter(p -> p.division.id == division.id)]
+            [#if playersInDivision?size > 0]
+            <h2>${division.name?cap_first}</h2>
             <table>
                 <thead>
                 <tr>
@@ -18,7 +20,7 @@
                 </thead>
                 <tbody>
                 [#list players as player]
-                    [#if player.playerDivision == division]
+                    [#if player.division.id == division.id]
                         <tr>
                             <td>${player?counter}</td>
                             <td>${player.playerId}</td>
@@ -53,6 +55,7 @@
                 [/#list]
                 </tbody>
             </table>
+            [/#if]
         [/#list]
     [/#if]
 

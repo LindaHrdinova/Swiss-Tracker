@@ -1,8 +1,9 @@
 package com.github.LindaHrdinova.Swiss_Tracker.controller;
 
 import com.github.LindaHrdinova.Swiss_Tracker.entity.Player;
-import com.github.LindaHrdinova.Swiss_Tracker.entity.Tournament;
+import com.github.LindaHrdinova.Swiss_Tracker.entity.Division;
 import com.github.LindaHrdinova.Swiss_Tracker.repository.PlayerRepository;
+import com.github.LindaHrdinova.Swiss_Tracker.service.DivisionService;
 import com.github.LindaHrdinova.Swiss_Tracker.service.PlayerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,12 @@ public class PlayerController {
     private final PlayerRepository playerRepository;
     private final PlayerService service;
 
-    public PlayerController(PlayerRepository playerRepository, PlayerService service) {
+    private final DivisionService divisionService;
+
+    public PlayerController(PlayerRepository playerRepository, PlayerService service, DivisionService divisionService) {
         this.playerRepository = playerRepository;
         this.service = service;
+        this.divisionService = divisionService;
     }
 
     @GetMapping("/addPlayer")
@@ -40,10 +44,11 @@ public class PlayerController {
 
         // SELECT DISTINCT player_division FROM players;
         List<Player> players = service.getAll();
+        List<Division> divisions = divisionService.getAll();
 
-        Set<Long> divisions = players.stream()
+        /*Set<Long> divisions = players.stream()
                 .map(player -> player.getDivision().getId())
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet());*/
 
         modelAndView.addObject("players", players);
         modelAndView.addObject("divisions", divisions);
